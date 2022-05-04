@@ -1,6 +1,7 @@
 import traceback
 from datetime import datetime
 
+from flask_cors import CORS, cross_origin
 from flask_restful import Resource, reqparse
 from models.loss_communication import LossCommunicationModel
 
@@ -19,7 +20,7 @@ class LossCommunicationList(Resource):
     parser.add_argument('date', type=str, required=True, help='This field cannot be left blank')
     parser.add_argument('event', type=int, required=True, help='This field cannot be left blank')
 
-
+    @cross_origin()
     def get(self):
         """
         Get all the loss communications
@@ -30,8 +31,10 @@ class LossCommunicationList(Resource):
           404:
             description: something goes wrong
         """
-        return {'items': list(map(lambda x: x.json(), LossCommunicationModel.query.all()))}
+        items = list(map(lambda x: x.json(), LossCommunicationModel.query.all()))
+        return {'items': items}
 
+    @cross_origin()
     def post(self):
         """
         Create new loss communication
@@ -92,6 +95,7 @@ class  LossCommunication(Resource):
     parser.add_argument('date', type=str, required=True, help='This field cannot be left blank')
     parser.add_argument('event', type=int, required=True, help='This field cannot be left blank')
 
+    @cross_origin()
     def put(self, id):
         """
         update or create new loss communication
@@ -149,6 +153,7 @@ class  LossCommunication(Resource):
         item.save_to_db()
         return item.json()
 
+    @cross_origin()
     def delete(self, id):
         """
         Delete item by id

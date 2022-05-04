@@ -1,7 +1,9 @@
 import enum
+import uuid
 from datetime import datetime
 
 from db import db
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy_utils import ChoiceType
 
 
@@ -25,7 +27,8 @@ class LossCommunicationModel(db.Model):
     __tablename__ = 'loss_communications'
 
     # table columns
-    id = db.Column(db.Integer, primary_key=True)
+    #id = db.Column(db.Integer, primary_key=True)
+    id = db.Column('id', db.Text(length=8), default=lambda: str(uuid.uuid4()), primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     cpf = db.Column(db.String(11))
@@ -46,7 +49,7 @@ class LossCommunicationModel(db.Model):
         self.event = event
 
     def json(self):
-        return {'name': self.name, 'email': self.email, 'cpf': self.cpf, 'lat': self.lat, 'lng': self.lng, 'type_farming': self.type_farming, 'date': datetime.strftime(self.date, '%Y-%m-%d'), 'event': self.event.label}
+        return {'id': self.id, 'name': self.name, 'email': self.email, 'cpf': self.cpf, 'lat': self.lat, 'lng': self.lng, 'type_farming': self.type_farming, 'date': datetime.strftime(self.date, '%Y-%m-%d'), 'event': self.event.label}
 
     @classmethod
     def already_exists(cls, cpf, date):
