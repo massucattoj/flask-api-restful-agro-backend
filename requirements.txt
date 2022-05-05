@@ -5,3 +5,4 @@ Flask-SQLAlchemy
 uwsgi
 flasgger
 flask_cors
+sqlalchemy-utils
