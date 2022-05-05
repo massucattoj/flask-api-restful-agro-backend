@@ -17,6 +17,7 @@ Um simples CRUD para cadastro / comunicaçāo de perdas em lavouras.
 
 - Link backend: https://agro-flask.herokuapp.com/
 - Link frontend: https://agrotop.netlify.app/
+- Link swagger: https://agro-flask.herokuapp.com/apidocs
 
 ### Execução do projeto Local
 
@@ -36,3 +37,16 @@ basta substituir a parte que referencia o heroku para http://127.0.0.1:5000
 - Deletar comunicação de perda: DELETE
 
 - Listar todas as comunicaçōes de perda (O filtro acontece lado front end): GET
+
+### Run Test
+
+Terminal: export ENV_FILE_LOCATION=./.env.test
+Terminal: python -m unittest tests/test_loss_communication.py
+
+Descomentar essa linha no arquivo app.py
+#app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///teste.db"
+
+Comentar essa linha no arquivo app.py
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///data.db") # tell where is the database
+
+TODO: Configurar dotenv de testes
