@@ -32,9 +32,10 @@ Um simples CRUD para cadastro / comunicaçāo de perdas em lavouras.
 Os endpoints listados abaixo representam os endpoints criados pelo heroku, para testar localmente
 basta substituir a parte que referencia o heroku para http://127.0.0.1:5000
 
-- Cadastrar nova comunicação de perda: POST
-- Atualizar comunicação de perda: PUT
-- Deletar comunicação de perda: DELETE
+- Listar todas as comunicação de perda: GET = http://127.0.0.1:5000/loss_communication
+- Cadastrar nova comunicação de perda: POST = http://127.0.0.1:5000/loss_communication
+- Atualizar comunicação de perda: PUT = http://127.0.0.1:5000/loss_communication/:id
+- Deletar comunicação de perda: DELETE = http://127.0.0.1:5000/loss_communication/:id
 
 - Listar todas as comunicaçōes de perda (O filtro acontece lado front end): GET
 
@@ -52,3 +53,11 @@ Comentar essa linha no arquivo app.py
 - app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///data.db") # tell where is the database
 
 TODO: Configurar dotenv de testes
+
+### Melhorias
+
+- Busca de localização por CEP
+- Dashboard das causalidades, periodos
+- Prever possiveis causalidades com base em eventos passados
+- Adicionar imagens do estrago causado pelos eventos
+- Buscar evento automaticamente em alguma base de dados meteorológica com base na data
