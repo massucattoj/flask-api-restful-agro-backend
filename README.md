@@ -13,7 +13,12 @@ Um simples CRUD para cadastro / comunicaçāo de perdas em lavouras.
 - Flasgger
 - unittest
 
-### Execução do projeto
+### Execução do projeto heroku
+
+- Link backend: https://agro-flask.herokuapp.com/
+- Link frontend: https://agrotop.netlify.app/
+
+### Execução do projeto Local
 
 - Clonar repositorio
 - Utilizar pip para instalar os pacotes necessarios (pip install -r requirements.txt) preferencialmente
