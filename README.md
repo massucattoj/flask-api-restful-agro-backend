@@ -44,9 +44,11 @@ Terminal: export ENV_FILE_LOCATION=./.env.test
 Terminal: python -m unittest tests/test_loss_communication.py
 
 Descomentar essa linha no arquivo app.py
-#app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///teste.db"
+
+- app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///teste.db"
 
 Comentar essa linha no arquivo app.py
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///data.db") # tell where is the database
+
+- app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///data.db") # tell where is the database
 
 TODO: Configurar dotenv de testes
