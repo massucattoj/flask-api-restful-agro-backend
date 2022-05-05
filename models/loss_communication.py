@@ -27,8 +27,7 @@ class LossCommunicationModel(db.Model):
     __tablename__ = 'loss_communications'
 
     # table columns
-    #id = db.Column(db.Integer, primary_key=True)
-    id = db.Column('id', db.Text(length=8), default=lambda: str(uuid.uuid4()), primary_key=True)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     cpf = db.Column(db.String(11))

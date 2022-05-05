@@ -2,7 +2,8 @@ Flask
 Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
-uwsgi
 flasgger
 flask_cors
+psycopg2
 sqlalchemy-utils
+uwsgi
